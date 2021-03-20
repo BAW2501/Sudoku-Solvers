@@ -24,7 +24,6 @@ def is_valid(puzzle, row, column, guess):
 
 def backtrack_solver(bo):
     i, j = find_empty(bo)
-
     if i == -1:
         return True
 

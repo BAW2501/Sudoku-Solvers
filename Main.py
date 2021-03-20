@@ -1,4 +1,5 @@
 from BacktrakingSolver import *
+from LppSolver import *
 
 SUDOKU_SIZE: int = 9
 board = [[1, 7, 4, 0, 9, 0, 6, 0, 0],
@@ -28,8 +29,18 @@ def print_board(bo):
 
 
 if __name__ == "__main__":
+    board2 = list()
+    board2.extend(board)
     print_board(board)
+    print("\n\n\n")
+
     if backtrack_solver(board):
         print_board(board)
     else:
         print("no solution found")
+    print("\n\n\n")
+    if lpp_solver(board):
+        print_board(board)
+    else:
+        print("no solution found")
+
