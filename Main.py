@@ -1,22 +1,23 @@
-board = [
-    [7, 8, 0, 4, 0, 0, 1, 2, 0],
-    [6, 0, 0, 0, 7, 5, 0, 0, 9],
-    [0, 0, 0, 6, 0, 1, 0, 7, 8],
-    [0, 0, 7, 0, 4, 0, 2, 6, 0],
-    [0, 0, 1, 0, 5, 0, 9, 3, 0],
-    [9, 0, 4, 0, 6, 0, 0, 0, 5],
-    [0, 7, 0, 3, 0, 0, 0, 1, 2],
-    [1, 2, 0, 0, 0, 7, 4, 0, 0],
-    [0, 4, 9, 2, 0, 6, 0, 0, 7]
-]
+from BacktrakingSolver import *
+
+SUDOKU_SIZE: int = 9
+board = [[1, 7, 4, 0, 9, 0, 6, 0, 0],
+         [0, 0, 0, 0, 3, 8, 1, 5, 7],
+         [5, 3, 0, 7, 0, 1, 0, 0, 4],
+         [0, 0, 7, 3, 4, 9, 8, 0, 0],
+         [8, 4, 0, 5, 0, 0, 3, 6, 0],
+         [3, 0, 5, 0, 0, 6, 4, 7, 0],
+         [2, 8, 6, 9, 0, 0, 0, 0, 1],
+         [0, 0, 0, 6, 2, 7, 0, 3, 8],
+         [0, 5, 3, 0, 8, 0, 0, 9, 6]]
 
 
 def print_board(bo):
-    for i in range(len(bo)):
+    for i in range(SUDOKU_SIZE):
         if i % 3 == 0 and i != 0:
             print("- - - - - - - - - - - - - ")
 
-        for j in range(len(bo[0])):
+        for j in range(SUDOKU_SIZE):
             if j % 3 == 0 and j != 0:
                 print(" | ", end="")
 
@@ -26,4 +27,9 @@ def print_board(bo):
                 print(str(bo[i][j]) + " ", end="")
 
 
-print_board(board)
+if __name__ == "__main__":
+    print_board(board)
+    if backtrack_solver(board):
+        print_board(board)
+    else:
+        print("no solution found")
